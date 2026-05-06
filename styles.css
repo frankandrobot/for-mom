@@ -41,6 +41,22 @@ input {
     linear-gradient(160deg, var(--deep-sea), var(--lagoon) 54%, #035264);
 }
 
+.landing-page {
+  background:
+    radial-gradient(circle at 50% -14%, rgba(255, 246, 220, 0.34), transparent 24rem),
+    radial-gradient(circle at 16% 26%, rgba(141, 240, 220, 0.34), transparent 19rem),
+    radial-gradient(circle at 86% 34%, rgba(255, 111, 97, 0.24), transparent 18rem),
+    linear-gradient(180deg, #0c8a9a 0%, var(--lagoon) 26%, #055b72 64%, #032f44 100%);
+}
+
+.shipwreck-page {
+  background:
+    radial-gradient(circle at 50% -18%, rgba(141, 240, 220, 0.22), transparent 23rem),
+    radial-gradient(circle at 86% 22%, rgba(179, 157, 219, 0.18), transparent 18rem),
+    radial-gradient(circle at 18% 62%, rgba(255, 111, 97, 0.16), transparent 15rem),
+    linear-gradient(180deg, #075b72 0%, #04384f 38%, #032536 70%, #01141f 100%);
+}
+
 .ocean-scene {
   position: relative;
   display: grid;
@@ -49,6 +65,57 @@ input {
   padding: 2rem;
   isolation: isolate;
   overflow: hidden;
+}
+
+.underwater-depth {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background:
+    linear-gradient(180deg, rgba(255, 246, 220, 0.18), transparent 22%),
+    radial-gradient(ellipse at 50% 118%, rgba(1, 20, 31, 0.62), transparent 52%),
+    linear-gradient(90deg, rgba(3, 47, 68, 0.28), transparent 24%, transparent 76%, rgba(3, 47, 68, 0.3));
+  pointer-events: none;
+}
+
+.abyss-depth {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background:
+    linear-gradient(180deg, rgba(255, 246, 220, 0.1), transparent 18%),
+    radial-gradient(ellipse at 50% 106%, rgba(1, 20, 31, 0.82), transparent 44%),
+    linear-gradient(90deg, rgba(1, 20, 31, 0.38), transparent 30%, transparent 70%, rgba(1, 20, 31, 0.42));
+}
+
+.caustics {
+  position: absolute;
+  inset: -18% -20%;
+  z-index: -3;
+  background-image:
+    repeating-radial-gradient(ellipse at 16% 20%, rgba(255, 246, 220, 0.16) 0 0.06rem, transparent 0.12rem 1.3rem),
+    repeating-radial-gradient(ellipse at 72% 28%, rgba(141, 240, 220, 0.13) 0 0.05rem, transparent 0.11rem 1.1rem);
+  filter: blur(0.45px);
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  transform-origin: center;
+}
+
+.caustics-two {
+  opacity: 0.38;
+  transform: rotate(9deg) scale(1.12);
+}
+
+.deep-caustics {
+  position: absolute;
+  inset: -16% -20%;
+  z-index: -3;
+  background:
+    repeating-radial-gradient(ellipse at 30% 20%, rgba(141, 240, 220, 0.08) 0 0.05rem, transparent 0.11rem 1.45rem),
+    repeating-radial-gradient(ellipse at 76% 30%, rgba(255, 246, 220, 0.07) 0 0.04rem, transparent 0.1rem 1.2rem);
+  filter: blur(1px);
+  mix-blend-mode: screen;
+  opacity: 0.46;
 }
 
 .light-rays {
@@ -60,6 +127,22 @@ input {
     linear-gradient(78deg, transparent 44%, rgba(141, 240, 220, 0.14) 48%, transparent 56%),
     linear-gradient(132deg, transparent 62%, rgba(255, 209, 102, 0.12) 67%, transparent 74%);
   animation: rays 8s ease-in-out infinite alternate;
+}
+
+.landing-page .light-rays {
+  inset: -24% -30% 10%;
+  background:
+    linear-gradient(104deg, transparent 15%, rgba(255, 246, 220, 0.22) 20%, transparent 31%),
+    linear-gradient(76deg, transparent 40%, rgba(141, 240, 220, 0.2) 47%, transparent 58%),
+    linear-gradient(132deg, transparent 58%, rgba(255, 209, 102, 0.13) 65%, transparent 75%);
+  filter: blur(1.5px);
+  opacity: 0.82;
+}
+
+.shipwreck-page .light-rays {
+  inset: -28% -32% 24%;
+  opacity: 0.38;
+  filter: blur(2.5px);
 }
 
 .hero-shell,
@@ -76,6 +159,17 @@ input {
 
 .hero-shell {
   animation: float-shell 4.5s ease-in-out infinite;
+}
+
+.landing-page .hero-shell {
+  border-color: rgba(141, 240, 220, 0.36);
+  background:
+    linear-gradient(145deg, rgba(255, 246, 220, 0.17), rgba(4, 124, 140, 0.2)),
+    radial-gradient(circle at 50% 0%, rgba(255, 209, 102, 0.1), transparent 56%);
+  box-shadow:
+    0 2rem 5rem rgba(1, 20, 31, 0.5),
+    inset 0 0 3.2rem rgba(141, 240, 220, 0.2),
+    0 0 5rem rgba(30, 202, 211, 0.12);
 }
 
 .eyebrow {
@@ -97,6 +191,21 @@ h1 {
 
 .message-panel h1 {
   font-size: clamp(2.1rem, 6vw, 4.8rem);
+}
+
+.shipwreck-page .message-panel {
+  align-self: end;
+  margin-bottom: clamp(5.5rem, 13vh, 9rem);
+  width: min(48rem, 100%);
+  border-color: rgba(141, 240, 220, 0.24);
+  background: linear-gradient(145deg, rgba(1, 20, 31, 0.56), rgba(4, 56, 79, 0.42));
+  box-shadow:
+    0 1.6rem 4.5rem rgba(1, 20, 31, 0.62),
+    inset 0 0 2.4rem rgba(141, 240, 220, 0.12);
+}
+
+.shipwreck-page .message-panel h1 {
+  font-size: clamp(2rem, 5vw, 4.15rem);
 }
 
 .hero-copy,
@@ -150,6 +259,47 @@ input:focus-visible {
   font-size: 0.95rem;
 }
 
+.mom-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem auto 0;
+  max-width: 38rem;
+  text-align: left;
+}
+
+.mom-list label {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mom-list span {
+  display: inline-grid;
+  width: 1rem;
+  height: 1rem;
+  place-items: center;
+  border: 2px solid rgba(255, 246, 220, 0.42);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--gold), var(--coral) 68%);
+  box-shadow: 0 0 0.85rem rgba(255, 209, 102, 0.28);
+}
+
+.mom-list input {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid rgba(141, 240, 220, 0.28);
+  border-radius: 0.85rem;
+  background: rgba(255, 246, 220, 0.12);
+  color: var(--pearl);
+  padding: 0.75rem 0.95rem;
+  box-shadow: inset 0 0 1rem rgba(1, 20, 31, 0.2);
+}
+
+.mom-list input::placeholder {
+  color: rgba(255, 246, 220, 0.58);
+}
+
 .music-controls {
   position: fixed;
   right: 1rem;
@@ -201,6 +351,99 @@ input:focus-visible {
   background: radial-gradient(circle at 35% 30%, rgba(255, 246, 220, 0.8), rgba(141, 240, 220, 0.12) 38%, transparent 70%);
   animation: bubble var(--speed, 9s) linear infinite;
   animation-delay: var(--delay, 0s);
+}
+
+.shipwreck-page .bubbles span {
+  opacity: 0.62;
+  filter: blur(0.2px);
+}
+
+.landing-page .bubbles span {
+  border-color: rgba(255, 246, 220, 0.5);
+  box-shadow:
+    inset 0.1rem 0.1rem 0.35rem rgba(255, 246, 220, 0.35),
+    0 0 1.2rem rgba(141, 240, 220, 0.22);
+}
+
+.marine-snow i {
+  position: absolute;
+  top: var(--top, 20%);
+  left: var(--left, 50%);
+  width: var(--size, 0.22rem);
+  height: var(--size, 0.22rem);
+  border-radius: 50%;
+  background: rgba(255, 246, 220, 0.74);
+  box-shadow: 0 0 0.7rem rgba(141, 240, 220, 0.38);
+  opacity: var(--opacity, 0.42);
+  animation: snow-drift var(--speed, 9s) ease-in-out infinite alternate;
+  animation-delay: var(--delay, 0s);
+}
+
+.marine-snow i:nth-child(1) {
+  --top: 9%;
+  --left: 9%;
+  --speed: 8s;
+}
+
+.marine-snow i:nth-child(2) {
+  --top: 23%;
+  --left: 17%;
+  --size: 0.16rem;
+  --speed: 10s;
+  --delay: -3s;
+}
+
+.marine-snow i:nth-child(3) {
+  --top: 15%;
+  --left: 33%;
+  --opacity: 0.52;
+  --speed: 12s;
+}
+
+.marine-snow i:nth-child(4) {
+  --top: 38%;
+  --left: 44%;
+  --size: 0.14rem;
+  --delay: -5s;
+}
+
+.marine-snow i:nth-child(5) {
+  --top: 28%;
+  --left: 59%;
+  --speed: 11s;
+}
+
+.marine-snow i:nth-child(6) {
+  --top: 47%;
+  --left: 73%;
+  --size: 0.18rem;
+  --delay: -2s;
+}
+
+.marine-snow i:nth-child(7) {
+  --top: 14%;
+  --left: 88%;
+  --speed: 13s;
+}
+
+.marine-snow i:nth-child(8) {
+  --top: 62%;
+  --left: 22%;
+  --size: 0.2rem;
+  --delay: -4s;
+}
+
+.marine-snow i:nth-child(9) {
+  --top: 66%;
+  --left: 64%;
+  --opacity: 0.34;
+}
+
+.marine-snow i:nth-child(10) {
+  --top: 76%;
+  --left: 81%;
+  --size: 0.15rem;
+  --speed: 12s;
 }
 
 .bubbles span:nth-child(1) {
@@ -274,11 +517,78 @@ input:focus-visible {
   animation: drift 7s ease-in-out infinite alternate;
 }
 
+.landing-page .wave {
+  bottom: -7.5rem;
+  height: 15rem;
+  opacity: 0.58;
+  filter: blur(8px);
+}
+
 .wave-two {
   bottom: -7rem;
   opacity: 0.5;
   transform: scaleX(1.2);
   animation-duration: 10s;
+}
+
+.landing-page .wave-two {
+  bottom: -9rem;
+  opacity: 0.34;
+}
+
+.sway-grass {
+  position: absolute;
+  bottom: -1rem;
+  z-index: -1;
+  width: clamp(7rem, 18vw, 13rem);
+  height: clamp(12rem, 30vw, 21rem);
+  background:
+    radial-gradient(ellipse at 24% 84%, rgba(255, 111, 97, 0.62) 0 12%, transparent 13%),
+    radial-gradient(ellipse at 74% 82%, rgba(255, 182, 185, 0.5) 0 10%, transparent 11%),
+    linear-gradient(82deg, transparent 39%, rgba(141, 240, 220, 0.72) 40% 44%, transparent 45%),
+    linear-gradient(96deg, transparent 49%, rgba(30, 202, 211, 0.62) 50% 54%, transparent 55%),
+    linear-gradient(72deg, transparent 59%, rgba(141, 240, 220, 0.54) 60% 64%, transparent 65%);
+  filter: blur(0.2px);
+  opacity: 0.76;
+  transform-origin: bottom center;
+}
+
+.grass-left {
+  left: clamp(0.75rem, 3vw, 2rem);
+}
+
+.grass-right {
+  right: clamp(0.75rem, 3vw, 2rem);
+  transform: scaleX(-1);
+}
+
+.shipwreck-art {
+  position: absolute;
+  right: max(-1rem, 2vw);
+  bottom: clamp(6.5rem, 16vh, 11rem);
+  z-index: -2;
+  width: min(48rem, 92vw);
+  max-height: 42vh;
+  opacity: 0.84;
+  transform: rotate(-5deg);
+  transform-origin: 62% 80%;
+}
+
+.shipwreck-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.wreck-shadow {
+  fill: rgba(1, 20, 31, 0.58);
+}
+
+.wreck-body,
+.wreck-mast,
+.wreck-coral {
+  filter: drop-shadow(0 1.2rem 1.5rem rgba(1, 20, 31, 0.42));
 }
 
 .reef {
@@ -353,6 +663,16 @@ input:focus-visible {
   }
 }
 
+@keyframes snow-drift {
+  from {
+    transform: translate3d(-0.4rem, -0.2rem, 0);
+  }
+
+  to {
+    transform: translate3d(1.4rem, 1.1rem, 0);
+  }
+}
+
 @media (max-width: 720px) {
   .ocean-scene {
     padding: 1rem;
@@ -375,6 +695,40 @@ input:focus-visible {
 
   .volume-control input {
     width: 55vw;
+  }
+
+  .sway-grass {
+    opacity: 0.45;
+  }
+
+  .shipwreck-page .message-panel {
+    margin-bottom: 7.5rem;
+    padding: 1.65rem 1rem;
+  }
+
+  .shipwreck-art {
+    right: -8rem;
+    bottom: 11.5rem;
+    width: 42rem;
+    opacity: 0.5;
+  }
+
+  .mom-list {
+    gap: 0.55rem;
+  }
+
+  .mom-list label {
+    grid-template-columns: 1rem minmax(0, 1fr);
+    gap: 0.55rem;
+  }
+
+  .mom-list span {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  .mom-list input {
+    min-height: 2.75rem;
   }
 }
 
