@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Mom</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page message-page">
+    <audio id="theme-song" src="assets/little-mermaid-theme.mp3" loop preload="auto"></audio>
+
+    <main class="ocean-scene" aria-labelledby="message-title">
+      <div class="light-rays" aria-hidden="true"></div>
+      <div class="reef reef-left" aria-hidden="true"></div>
+      <div class="reef reef-right" aria-hidden="true"></div>
+      <div class="bubbles" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <section class="message-panel">
+        <p class="eyebrow">Under the Sea</p>
+        <h1 id="message-title">This page is for you, Mom</h1>
+        <p>
+          A bright little mermaid-inspired moment with waves, sparkles, and music made to feel
+          warm, colorful, and magical.
+        </p>
+        <a class="back-link" href="index.html">Back to start</a>
+      </section>
+
+      <section class="music-controls" aria-label="Music controls">
+        <button class="control-button" type="button" data-toggle-audio>Play Music</button>
+        <label class="volume-control">
+          <span>Volume</span>
+          <input type="range" min="0" max="1" step="0.05" value="0.7" data-volume-control />
+        </label>
+        <p class="audio-note" data-audio-status>Use Play Music to start the song.</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
