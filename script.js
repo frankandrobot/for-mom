@@ -5,6 +5,7 @@ const volumeControl = document.querySelector("[data-volume-control]");
 const audioStatuses = document.querySelectorAll("[data-audio-status]");
 const isLandingPage = document.body.classList.contains("landing-page");
 const isShipwreckPage = document.body.classList.contains("shipwreck-page");
+const isCelebrationPage = document.body.classList.contains("celebration-page");
 
 const setStatus = (message) => {
   audioStatuses.forEach((status) => {
@@ -207,6 +208,54 @@ if (isShipwreckPage && window.gsap) {
       ease: "sine.inOut",
       repeat: -1,
       yoyo: true
+    });
+  }
+}
+
+if (isCelebrationPage) {
+  const confetti = document.querySelector("[data-confetti]");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (confetti) {
+    const colors = ["#ffd166", "#ff6f61", "#ffb6b9", "#8df0dc", "#1ecad3", "#fff6dc"];
+
+    for (let index = 0; index < 64; index += 1) {
+      const piece = document.createElement("span");
+      piece.style.setProperty("--left", `${Math.random() * 100}%`);
+      piece.style.setProperty("--delay", `${Math.random() * -5}s`);
+      piece.style.setProperty("--speed", `${3.2 + Math.random() * 3.8}s`);
+      piece.style.setProperty("--drift", `${Math.random() * 8 - 4}rem`);
+      piece.style.setProperty("--spin", `${Math.random() > 0.5 ? 1 : -1}`);
+      piece.style.setProperty("--confetti-color", colors[index % colors.length]);
+      confetti.appendChild(piece);
+    }
+  }
+
+  if (window.gsap && !prefersReducedMotion) {
+    const { gsap } = window;
+
+    gsap.fromTo(
+      ".mermaid-drop",
+      { y: "-120vh", rotation: -14, opacity: 0 },
+      { y: 0, rotation: 0, opacity: 1, duration: 2.2, ease: "bounce.out", delay: 0.35 }
+    );
+
+    gsap.to(".mermaid-drop", {
+      y: -10,
+      rotation: 2,
+      duration: 4.2,
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true,
+      delay: 2.5
+    });
+
+    gsap.from(".final-panel", {
+      y: 32,
+      opacity: 0,
+      duration: 1.1,
+      ease: "power2.out",
+      delay: 1.05
     });
   }
 }

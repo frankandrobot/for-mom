@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Mother's Day</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page celebration-page">
+    <audio id="theme-song" src="assets/little-mermaid-theme.mp3" loop preload="auto"></audio>
+
+    <main class="ocean-scene" aria-labelledby="final-title">
+      <div class="underwater-depth" aria-hidden="true"></div>
+      <div class="caustics caustics-one" aria-hidden="true"></div>
+      <div class="caustics caustics-two" aria-hidden="true"></div>
+      <div class="light-rays" aria-hidden="true"></div>
+      <div class="confetti-rain" data-confetti aria-hidden="true"></div>
+      <div class="bubbles" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <img class="mermaid-drop" src="assets/mermaid.png" alt="A smiling mermaid" />
+
+      <section class="final-panel">
+        <p class="eyebrow">2m Deep</p>
+        <h1 id="final-title">Happy Mother's Day</h1>
+        <p class="hero-copy">With ocean magic, falling confetti, and all my love.</p>
+        <a class="back-link" href="index.html">Back to start</a>
+      </section>
+
+      <section class="music-controls" aria-label="Music controls">
+        <button class="control-button" type="button" data-toggle-audio>Play Music</button>
+        <label class="volume-control">
+          <span>Volume</span>
+          <input type="range" min="0" max="1" step="0.05" value="0.7" data-volume-control />
+        </label>
+        <p class="audio-note" data-audio-status>Use Play Music to start the song.</p>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

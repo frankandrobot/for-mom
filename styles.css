@@ -57,6 +57,14 @@ input {
     linear-gradient(180deg, #075b72 0%, #04384f 38%, #032536 70%, #01141f 100%);
 }
 
+.celebration-page {
+  background:
+    radial-gradient(circle at 50% -16%, rgba(255, 246, 220, 0.38), transparent 24rem),
+    radial-gradient(circle at 15% 28%, rgba(141, 240, 220, 0.34), transparent 18rem),
+    radial-gradient(circle at 88% 26%, rgba(255, 182, 185, 0.3), transparent 19rem),
+    linear-gradient(180deg, #0c8a9a 0%, var(--lagoon) 32%, #055b72 68%, #032f44 100%);
+}
+
 .ocean-scene {
   position: relative;
   display: grid;
@@ -208,6 +216,27 @@ h1 {
   font-size: clamp(2rem, 5vw, 4.15rem);
 }
 
+.final-panel {
+  position: relative;
+  z-index: 2;
+  width: min(50rem, 100%);
+  border: 1px solid rgba(255, 246, 220, 0.3);
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(145deg, rgba(255, 246, 220, 0.17), rgba(4, 124, 140, 0.24)),
+    radial-gradient(circle at 50% 0%, rgba(255, 209, 102, 0.16), transparent 58%);
+  box-shadow:
+    0 2rem 5rem rgba(1, 20, 31, 0.5),
+    inset 0 0 3rem rgba(141, 240, 220, 0.2);
+  padding: clamp(2.25rem, 7vw, 4.75rem);
+  text-align: center;
+  backdrop-filter: blur(14px);
+}
+
+.final-panel h1 {
+  font-size: clamp(3rem, 10vw, 7rem);
+}
+
 .hero-copy,
 .message-panel p:not(.eyebrow) {
   max-width: 34rem;
@@ -235,6 +264,21 @@ h1 {
   padding: 0.9rem 2rem;
   text-decoration: none;
   transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.page-actions .back-link {
+  margin-top: 1.35rem;
+}
+
+.final-link {
+  background: linear-gradient(135deg, var(--seafoam), var(--aqua) 58%, var(--gold));
 }
 
 .enter-button:hover,
@@ -501,6 +545,53 @@ input:focus-visible {
   --delay: -8s;
 }
 
+.confetti-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti-rain span {
+  position: absolute;
+  top: -2rem;
+  left: var(--left, 50%);
+  width: 0.72rem;
+  height: 1.15rem;
+  border-radius: 0.16rem;
+  background: var(--confetti-color, var(--gold));
+  box-shadow: 0 0 0.65rem rgba(255, 246, 220, 0.18);
+  opacity: 0.92;
+  transform: translate3d(0, -2rem, 0) rotate(0deg);
+  animation: confetti-fall var(--speed, 4.5s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.confetti-rain span:nth-child(3n) {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.confetti-rain span:nth-child(4n) {
+  width: 1rem;
+  height: 0.42rem;
+}
+
+.mermaid-drop {
+  position: absolute;
+  top: clamp(1rem, 5vh, 3rem);
+  right: clamp(0.5rem, 6vw, 7rem);
+  z-index: 3;
+  width: clamp(11rem, 30vw, 21rem);
+  height: auto;
+  filter: drop-shadow(0 1.2rem 1.5rem rgba(1, 20, 31, 0.34));
+  transform-origin: 50% 12%;
+  animation: mermaid-drop 2.2s 0.35s both cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
 .wave {
   position: absolute;
   right: -10%;
@@ -673,6 +764,29 @@ input:focus-visible {
   }
 }
 
+@keyframes confetti-fall {
+  to {
+    transform: translate3d(var(--drift, 1rem), 110vh, 0) rotate(calc(var(--spin, 1) * 720deg));
+  }
+}
+
+@keyframes mermaid-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-120vh) rotate(-14deg);
+  }
+
+  78% {
+    opacity: 1;
+    transform: translateY(1.2rem) rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
 @media (max-width: 720px) {
   .ocean-scene {
     padding: 1rem;
@@ -711,6 +825,17 @@ input:focus-visible {
     bottom: 11.5rem;
     width: 42rem;
     opacity: 0.5;
+  }
+
+  .mermaid-drop {
+    top: 0.75rem;
+    right: -1.75rem;
+    width: clamp(9.5rem, 42vw, 14rem);
+    opacity: 0.92;
+  }
+
+  .final-panel {
+    padding: 2rem 1.15rem;
   }
 
   .mom-list {
